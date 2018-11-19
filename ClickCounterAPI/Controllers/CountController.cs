@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CardinalityEstimation;
 using Microsoft.AspNetCore.Mvc;
 using RethinkDb.Driver;
 using RethinkDb.Driver.Net;
@@ -20,11 +21,23 @@ namespace ClickCounterAPI.Controllers
             _rDB = new RethinkDB();
         }
 
+        [HttpGet()]
+        public JsonResult Get()
+        {
+            List<Fingerprint> result = _rDB.Db("Count").Table("Count").Run<List<Fingerprint>>(_con);
+            ICardinalityEstimator<string> estimator = new CardinalityEstimator();
+            foreach (Fingerprint finger in result)
+            {
+                estimator.Add(finger.Hash);
+            }
+            return new JsonResult(new { Clicks = estimator.Count()});
+        }
+
         // POST api/<controller>
         [HttpPost("{fingerprint}")]
-        public void Post(string fingerprint , [FromBody]string value)
+        public void Post(string fingerprint)
         {
-            _rDB.Db("Count").Table("Count").Insert(new { Fingerprint = fingerprint}).Run(_con);
+            _rDB.Db("Count").Table("Count").Insert(new Fingerprint { Hash = fingerprint}).Run(_con);
         }
     }
 }
