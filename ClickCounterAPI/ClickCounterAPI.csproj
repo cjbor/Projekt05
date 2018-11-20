@@ -12,4 +12,8 @@
     <PackageReference Include="RethinkDb.Driver" Version="2.3.23" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClickCounterDB\ClickCounterDB.csproj" />
+  </ItemGroup>
+
 </Project>
