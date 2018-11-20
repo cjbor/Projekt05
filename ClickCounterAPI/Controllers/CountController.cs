@@ -21,17 +21,16 @@ namespace ClickCounterAPI.Controllers
             _counterRepo = counterRepo;
         }
 
-        /*[HttpGet()]
+        [HttpGet()]
         public JsonResult Get()
         {
-            Cursor<Fingerprint> result = _rDB.Db("Count").Table("Count").Run<Fingerprint>(_con);
             ICardinalityEstimator<string> estimator = new CardinalityEstimator();
-            foreach (Fingerprint finger in result.BufferedItems)
+            foreach (Fingerprint finger in _counterRepo.GetFingerprints())
             {
                 estimator.Add(finger.Hash);
             }
             return new JsonResult(new { Clicks = estimator.Count()});
-        }*/
+        }
 
         // POST api/<controller>
         [HttpPost("{hash}")]

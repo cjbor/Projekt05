@@ -20,5 +20,11 @@ namespace ClickCounterDB
         {
             _rDB.Db("Count").Table("Count").Insert(new Fingerprint { Hash = hash }).Run(_con);
         }
+
+        public List<Fingerprint> GetFingerprints()
+        {
+            Cursor<Fingerprint> result = _rDB.Db("Count").Table("Count").Run<Fingerprint>(_con);
+            return result.BufferedItems;
+        }
     }
 }
