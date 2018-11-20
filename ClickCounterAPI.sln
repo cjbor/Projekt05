@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClickCounterAPI", "ClickCounterAPI\ClickCounterAPI.csproj", "{14AC077E-54E8-40B6-8CCB-55653414F627}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickCounterDB", "ClickCounterDB\ClickCounterDB.csproj", "{D7A96A17-D6DF-426A-98F6-809DF4065678}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClickCounterDB", "ClickCounterDB\ClickCounterDB.csproj", "{D7A96A17-D6DF-426A-98F6-809DF4065678}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickCounterWS", "ClickCounterWS\ClickCounterWS.csproj", "{E87FAD13-1A80-45FF-9F34-A59105B2A229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClickCounterWS", "ClickCounterWS\ClickCounterWS.csproj", "{E87FAD13-1A80-45FF-9F34-A59105B2A229}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickCounterWPF", "ClickCounterWPF\ClickCounterWPF.csproj", "{1009ABD5-AE43-44BE-AF57-AC8EE15E43BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E87FAD13-1A80-45FF-9F34-A59105B2A229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E87FAD13-1A80-45FF-9F34-A59105B2A229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E87FAD13-1A80-45FF-9F34-A59105B2A229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1009ABD5-AE43-44BE-AF57-AC8EE15E43BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1009ABD5-AE43-44BE-AF57-AC8EE15E43BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1009ABD5-AE43-44BE-AF57-AC8EE15E43BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1009ABD5-AE43-44BE-AF57-AC8EE15E43BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
