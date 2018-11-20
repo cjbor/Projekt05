@@ -24,9 +24,9 @@ namespace ClickCounterAPI.Controllers
         [HttpGet()]
         public JsonResult Get()
         {
-            List<Fingerprint> result = _rDB.Db("Count").Table("Count").Run<List<Fingerprint>>(_con);
+            Cursor<Fingerprint> result = _rDB.Db("Count").Table("Count").Run<Fingerprint>(_con);
             ICardinalityEstimator<string> estimator = new CardinalityEstimator();
-            foreach (Fingerprint finger in result)
+            foreach (Fingerprint finger in result.BufferedItems)
             {
                 estimator.Add(finger.Hash);
             }
