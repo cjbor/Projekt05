@@ -33,10 +33,10 @@ namespace ClickCounterAPI.Controllers
         }
 
         // POST api/<controller>
-        [HttpPost("{hash}")]
-        public void Post(string hash)
+        [HttpPost()]
+        public void Post([FromBody]Fingerprint fingerprint)
         {
-            _counterRepo.Count(hash);
+            _counterRepo.Count(fingerprint);
         }
     }
 }

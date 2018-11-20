@@ -6,7 +6,7 @@ namespace ClickCounterDB
 {
     public interface ICounterRepo
     {
-        void Count(string hash);
+        void Count(Fingerprint fingerprint);
         List<Fingerprint> GetFingerprints();
     }
 }

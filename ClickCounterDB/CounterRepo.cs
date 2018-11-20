@@ -16,9 +16,9 @@ namespace ClickCounterDB
             _rDB = new RethinkDB();
         }
 
-        public void Count(string hash)
+        public void Count(Fingerprint fingerprint)
         {
-            _rDB.Db("Count").Table("Count").Insert(new Fingerprint { Hash = hash }).Run(_con);
+            _rDB.Db("Count").Table("Count").Insert(fingerprint).Run(_con);
         }
 
         public List<Fingerprint> GetFingerprints()
