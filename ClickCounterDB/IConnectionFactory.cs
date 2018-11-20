@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using RethinkDb.Driver;
 using RethinkDb.Driver.Net;
 
-namespace ClickCounterAPI
+namespace ClickCounterDB
 {
     public interface IConnectionFactory
     {

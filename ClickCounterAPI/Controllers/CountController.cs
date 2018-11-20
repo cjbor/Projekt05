@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CardinalityEstimation;
+using ClickCounterDB;
 using Microsoft.AspNetCore.Mvc;
 using RethinkDb.Driver;
 using RethinkDb.Driver.Net;
@@ -12,16 +13,15 @@ using RethinkDb.Driver.Net;
 namespace ClickCounterAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class CountController : ControllerBase
+    public class CountController
     {
-        private readonly Connection _con;
-        private RethinkDB _rDB;
-        public CountController(IConnectionFactory conFac) {
-            _con = conFac.CreateConnection();
-            _rDB = new RethinkDB();
+        ICounterRepo _counterRepo;
+        public CountController(ICounterRepo counterRepo)
+        {
+            _counterRepo = counterRepo;
         }
 
-        [HttpGet()]
+        /*[HttpGet()]
         public JsonResult Get()
         {
             Cursor<Fingerprint> result = _rDB.Db("Count").Table("Count").Run<Fingerprint>(_con);
@@ -31,13 +31,13 @@ namespace ClickCounterAPI.Controllers
                 estimator.Add(finger.Hash);
             }
             return new JsonResult(new { Clicks = estimator.Count()});
-        }
+        }*/
 
         // POST api/<controller>
-        [HttpPost("{fingerprint}")]
-        public void Post(string fingerprint)
+        [HttpPost("{hash}")]
+        public void Post(string hash)
         {
-            _rDB.Db("Count").Table("Count").Insert(new Fingerprint { Hash = fingerprint}).Run(_con);
+            _counterRepo.Count(hash);
         }
     }
 }

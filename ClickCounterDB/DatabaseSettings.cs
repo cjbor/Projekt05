@@ -1,4 +1,4 @@
-﻿namespace ClickCounterAPI
+﻿namespace ClickCounterDB
 {
     internal class DatabaseSettings
     {

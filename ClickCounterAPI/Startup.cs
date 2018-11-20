@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClickCounterDB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,7 @@ namespace ClickCounterAPI
         {
             services.AddSingleton<RethinkDb.Driver.RethinkDB>();
             services.AddSingleton<IConnectionFactory, ConnectionFactory>();
+            services.AddScoped<ICounterRepo, CounterRepo>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
         }
